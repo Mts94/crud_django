@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+ {% block content %}
+<h1>Reservas</h1>
+<ul>
+  {% for reserva in reservas %}
+  <li>
+ <a href="{% url 'detalles' res_id=reserva.id  %}">
+      <h2>{{reserva.tipo_evento}}</h2>
+      <p>
+        {{reserva.apellido}} {{reserva.nombre}} {{reserva.fecha}} {{reserva.hora}}
+      </p>
+   </a>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
