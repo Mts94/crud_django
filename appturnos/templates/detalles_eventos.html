@@ -2,7 +2,10 @@
 
 {% block content %}
 
-<h1>Detalles del evento</h1>
+<main class="container">
+    <div class="row">
+        <div class="col-md4 offset-4">
+            <h1>Edita tu evento</h1>
 <h2>{{reserva.tipo_evento}}</h2> 
 <p>{{reserva.apellido}} {{reserva.fecha}} {{reserva.hora}} </p>
 {{error}}
@@ -10,21 +13,27 @@
     {% csrf_token %}
     {{form.as_p}}
 
-<button>
-    Actualizar
-</button>
-</form>
-<form action="{% url 'realizado' res_id=reserva.id %}" method='POST'>
-    {% csrf_token %}
-    <button>
-        Realizado
+<div class="d-flex">
+    <button class="btn btn-primary">
+        Actualizar
     </button>
+    </form>
+    <form action="{% url 'realizado' res_id=reserva.id %}" method='POST'>
+        {% csrf_token %}
+        <button class="btn btn-warning">
+            Realizado
+        </button>
+    </form>
+    <form action="{% url 'borrar' res_id=reserva.id %}" method='POST'>
+        {% csrf_token %}
+        <button class="btn btn-danger">
+            Borrar
+        </button>
+</div>
 </form>
-<form action="{% url 'borrar' res_id=reserva.id %}" method='POST'>
-    {% csrf_token %}
-    <button>
-        Borrar
-    </button>
-</form>
+
+        </div>
+    </div>
+</main>
 
 {% endblock  %}

@@ -14,7 +14,7 @@ def registro(request):
     if request.method == "GET":
         return render(request, "registro_form.html", {"form": UserCreationForm})
     else:
-        if request.POST["password1"] == request.POST["password2"]:
+        if request.POST['password1'] == request.POST['password2']:
             # registro de ususario
             try:
                 user = User.objects.create_user(

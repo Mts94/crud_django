@@ -1,17 +1,23 @@
-{% extends "base.html" %}
- {% block content %}
-<h1>Reservas</h1>
-<ul>
-  {% for reserva in reservas %}
-  <li>
- <a href="{% url 'detalles' res_id=reserva.id  %}">
-      <h2>{{reserva.tipo_evento}}</h2>
-      <p>
-        {{reserva.apellido}} {{reserva.nombre}} {{reserva.fecha}} {{reserva.hora}}
-      </p>
-   </a>
-  </li>
-  {% endfor %}
-</ul>
+{% extends "base.html" %} {% block content %}
+<main class="container">
+  <div class="row">
+    <div class="col-md-6 offset-3">
+      <h1 class="text-center mt-5 display-3">Reservas</h1>
+      <ul class="list-group">
+        {% for reserva in reservas %}
+        <a href="{% url 'detalles' res_id=reserva.id  %}" class ="list-group-item">
+          
+            <h3 class="text-center">{{reserva.tipo_evento}}</h3>
+            <p>
+              {{reserva.apellido}} {{reserva.nombre}} {{reserva.fecha}}
+              {{reserva.hora}}
+            </p>
+          
+        </a>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</main>
 
 {% endblock %}

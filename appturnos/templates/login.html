@@ -1,15 +1,34 @@
 {% extends "base.html" %} 
-
-
-
 {% block content %}
-{{error}}
-<h1>Iniciar sesion</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button>
-        Iniciar sesion
-    </button>
-</form>
- {% endblock %}
+<main class="container mt-5">
+  <section class="col-md-4 offset-4">
+    <form method="POST" class="card card-body">
+      {{error}} {% csrf_token %}
+      <h1 class="text-center">Resgistrate</h1>
+      {{error}} {% csrf_token %}
+      <div class="mb-3">
+        <label for="username">Usuario: </label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          class="form-control"
+          placeholder="Usuario"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password">Password: </label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="form-control"
+          placeholder="password"
+        />
+      </div>
+
+      <button class="btn btn-success">Login</button>
+    </form>
+  </section>
+</main>
+{% endblock %}
